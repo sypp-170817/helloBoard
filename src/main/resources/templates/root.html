@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bamdule</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+</head>
+<div th:replace="fragment/script :: script"> </div>
+<body>
+<div class="container">
+        <div th:replace="fragment/fragment :: header"></div>
+        <div th:insert="fragment/contents :: ${content}" class="content"> </div>
+        <div th:replace="fragment/fragment :: footer"> </div>
+</div>
+</body>
+</html>

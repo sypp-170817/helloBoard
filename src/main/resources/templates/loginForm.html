@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Bamdule</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>로그인</h1>
+    <div class="join-form-area">
+        <form th:method="post" th:action="@{/user/login}">
+            <label>ID : </label><input th:type="text" th:name="id"/>
+            <label>PW : </label><input th:type="password" th:name="pw"/>
+            <input th:type="submit" th:value="가입하기">
+        </form>
+    </div>
+</div>
+</body>
+</html>

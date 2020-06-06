@@ -1,0 +1,30 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="header" class="fragment header">
+    <div class="header-userinfo">
+        <th:block th:if="${session.userInfo}">
+            <button th:text="로그아웃" th:onclick="location.href='/user/logout'"/>
+        </th:block>
+        <th:block th:unless="${session.userInfo}">
+            <button th:text="로그인" th:onclick="location.href='/user/loginForm'"/><button th:text="회원가입" th:onclick="location.href='/user/joinForm'"/>
+        </th:block>
+    </div>
+    <div class="cut"></div>
+    <div class="write-btn-area">
+        <button th:text="'새 글쓰기'" th:onclick="location.href='/board/writeForm'"/>
+    </div>
+</div>
+
+
+<div th:fragment="footer" class="fragment footer">
+    <div class="footer-info">
+    회사정보<br>
+    상호 : 라이프디벨로퍼<br>
+    대표 : 배광석<br>
+    주소 : 서울시 관악구 신림동 난곡로 61길 33<br>
+    개인정보관리 책임자 : 배광석 (javabt01@gmail.com)<br>
+    사업자 등록번호 : 604-27-65326<br>
+    </div>
+</div>
+
+</html>

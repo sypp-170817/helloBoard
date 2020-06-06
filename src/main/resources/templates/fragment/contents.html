@@ -1,0 +1,68 @@
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="board">
+    <h1>커뮤니티 게시판</h1>
+    <div class="board-list-area">
+        <table class="board-list-table" >
+            <thead>
+            <tr>
+                <th>제목</th>
+                <th>내용</th>
+                <th>등록일</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="board : ${pages.content}">
+                    <td th:text="${board.seq}">
+                    <td th:text="${board.content}">
+                    <td th:text="${#temporals.format(board.createAt,'yyyy-MM-dd HH:mm:ss')}">
+                </tr>
+            </tbody>
+        </table>
+        <div>
+                <span>
+                    <a th:href="@{/(page=0)}" aria-label="First">
+                        <span aria-hidden="true">First</span>
+                    </a>
+                </span>
+
+                <th:block th:if="${curBlock > 0}">
+                    <span>
+                        <a th:href="@{/(page=${start-2})}" aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </span>
+                </th:block>
+
+                <span th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == pages.number + 1} ? 'active'">
+                    <a th:text="${page}" th:href="@{/(page=${page-1})}"></a>
+                </span>
+
+                <th:block th:if="${curBlock != totalBlock}">
+                    <span>
+                        <a th:href="@{/(page=${last})}" aria-label="Previous">
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                    </span>
+                </th:block>
+
+                <span>
+                    <a th:href="@{/(page=${pages.totalPages-1})}" aria-label="Last">
+                        <span aria-hidden="true">Last</span>
+                    </a>
+                </span>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="writeForm">
+    <h1>글쓰기</h1>
+    <div class="write-form-area">
+        <form th:method="post" th:action="@{/board/write}">
+            <div>제목 : <input th:type="text" th:name="title"></div>
+            <div>내용 : <textarea  cols="50" rows="10" th:name="content"></textarea></div>
+            <input th:type="submit" th:value="글쓰기">
+        </form>
+    </div>
+</div>
+
+</html>

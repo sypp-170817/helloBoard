@@ -1,0 +1,20 @@
+/*.fragment {background: aquamarine}*/
+.header {height: 100px; background: cadetblue}
+.footer{position: absolute;  bottom: 0; width: 800px; padding: 15px 0; color: white; background: darkgoldenrod }
+.footer-info {margin-left: 30px; font-size: 12px; }
+.header-userinfo {float: right; margin-top: 25px;}
+.write-btn-area {float: right; position: relative; top:-10px;}
+.cut {clear:both;}
+.container {width: 800px; margin:0 auto;}
+.content { text-align: center}
+button {margin: 10px;}
+table, th, td {
+    border: 1px solid #bcbcbc;
+    margin:0 auto;
+}
+
+.board-list-area { background: #bcbcbc;}
+.board-list-table {width: 95%;}
+.center {text-align: center}
+.write-form-area {width:100%; background: coral}
+.disabled {display: none}
